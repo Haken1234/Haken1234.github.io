@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页 - 张三</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+        }
+
+        body {
+            background: #f0f0f0;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 个人简介板块 */
+        .profile {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 25px;
+            border: 3px solid #4a90e2;
+            transition: transform 0.3s ease;
+        }
+
+        .avatar:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #4a90e2, #6c5ce7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bio {
+            color: #666;
+            font-size: 1.1em;
+            max-width: 600px;
+        }
+
+        /* 成果展示板块 */
+        .publications {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease 0.3s;
+            animation-fill-mode: backwards;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2em;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 70%;
+            background: #4a90e2;
+            border-radius: 3px;
+        }
+
+        .pub-item {
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 3px solid #4a90e2;
+            transition: all 0.3s ease;
+        }
+
+        .pub-item:hover {
+            transform: translateX(10px);
+            background: #f8f9ff;
+        }
+
+        .pub-type {
+            color: #4a90e2;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #4a90e2;
+        }
+
+        /* 动画 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 10px;
+            }
+            
+            .profile, .publications {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 个人简介 -->
+        <section class="profile">
+            <img src="https://via.placeholder.com/150" alt="头像" class="avatar">
+            <h1>张三</h1>
+            <div class="bio">
+                <p>人工智能研究员 | 机器学习工程师</p>
+                <p>清华大学计算机科学与技术博士，专注于计算机视觉与深度学习领域研究，在顶级会议和期刊发表论文20余篇，拥有5项技术专利。</p>
+                <p>热衷于将前沿技术应用于产业实践，曾主导多个AI落地项目，累计创造商业价值超5000万元。</p>
+            </div>
+        </section>
+
+        <!-- 成果展示 -->
+        <section class="publications">
+            <h2>学术成果</h2>
+            <div class="pub-list">
+                <div class="pub-item">
+                    <span class="pub-type">Journal:</span>
+                    <a href="#" target="_blank">"Deep Learning for Image Recognition" - IEEE TPAMI 2023</a>
+                </div>
+                <div class="pub-item">
+                    <span class="pub-type">Conference:</span>
+                    <a href="#" target="_blank">"Vision Transformer for Medical Imaging" - CVPR 2023</a>
+                </div>
+                <div class="pub-item">
+                    <span class="pub-type">Journal:</span>
+                    <a href="#" target="_blank">"Self-supervised Learning Survey" - ACM Computing Surveys 2022</a>
+                </div>
+                <div class="pub-item">
+                    <span class="pub-type">Conference:</span>
+                    <a href="#" target="_blank">"3D Object Detection Benchmark" - NeurIPS 2022</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
