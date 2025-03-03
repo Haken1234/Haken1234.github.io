@@ -62,6 +62,73 @@
             max-width: 600px;
         }
 
+        /* 学术成果板块 */
+        .publications {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.6s;
+            animation-fill-mode: backwards;
+        }
+
+        .paper-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 30px;
+            padding: 25px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .paper-image {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .paper-image:hover {
+            transform: scale(1.03);
+        }
+
+        .paper-info h3 {
+            color: #2c3e50;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .authors {
+            color: #4a90e2;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .journal {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+
+        .abstract {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4a90e2;
+        }
+
+        .abstract h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .abstract p {
+            color: #555;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
         /* 新闻模块 */
         .news {
             background: white;
@@ -76,117 +143,34 @@
         .news-item {
             padding: 20px;
             margin: 15px 0;
-            border-left: 3px solid #6c5ce7;
-            transition: all 0.3s ease;
-            display: flex;
-            gap: 30px;
-        }
-
-        .news-date {
-            color: #6c5ce7;
-            font-weight: 600;
-            min-width: 120px;
-        }
-
-        .news-content {
-            flex: 1;
+            border-left: 3px solid #4a90e2;
+            transition: transform 0.3s ease;
         }
 
         .news-item:hover {
             transform: translateX(10px);
-            background: #f8f9ff;
         }
 
-        /* 成果展示板块 */
-        .publications {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            animation: fadeInUp 1s ease 0.6s;
-            animation-fill-mode: backwards;
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .paper-item {
+                grid-template-columns: 1fr;
+            }
+            
+            .paper-image {
+                max-width: 60%;
+                margin: 0 auto;
+            }
         }
 
-        h2 {
-            color: #2c3e50;
-            margin-bottom: 30px;
-            font-size: 2em;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        h2::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 5px;
-            height: 70%;
-            background: #4a90e2;
-            border-radius: 3px;
-        }
-
-        .pub-item {
-            padding: 20px;
-            margin: 15px 0;
-            border-left: 3px solid #4a90e2;
-            transition: all 0.3s ease;
-        }
-
-        .pub-item:hover {
-            transform: translateX(10px);
-            background: #f8f9ff;
-        }
-
-        .pub-type {
-            color: #4a90e2;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        a {
-            color: #2c3e50;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #4a90e2;
-        }
-
-        /* 动画 */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px 10px;
-            }
-            
-            .profile, .news, .publications {
-                padding: 25px;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-
-            .news-item {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .news-date {
-                min-width: auto;
             }
         }
     </style>
@@ -195,59 +179,52 @@
     <div class="container">
         <!-- 个人简介 -->
         <section class="profile">
-            <img src='tou_xiang.jpg' alt="头像" class="avatar">
+            < img src="avatar.jpg" alt="头像" class="avatar">
             <h1>Haken</h1>
-            <div class="bio">
-                <p>人工智能研究员</p>
-                <p>西交利物浦大学大二，专注于多模态领域研究</p>
-            </div>
-        </section>
-
-        <!-- 最新动态 -->
-        <section class="news">
-            <h2>最新动态</h2>
-            <div class="news-list">
-                <div class="news-item">
-                    <span class="news-date">2024年9月15日</span>
-                    <div class="news-content">
-                        <strong>论文接收</strong> - 多模态医疗影像分析论文被MICCAI 2024接收
-                    </div>
-                </div>
-                <div class="news-item">
-                    <span class="news-date">2024年7月20日</span>
-                    <div class="news-content">
-                        <strong>学术获奖</strong> - 荣获IEEE CVPR最佳学生论文奖
-                    </div>
-                </div>
-                <div class="news-item">
-                    <span class="news-date">2024年5月10日</span>
-                    <div class="news-content">
-                        <strong>学术报告</strong> - 在NeurIPS 2024研讨会发表主题演讲
-                    </div>
-                </div>
-            </div>
+            <p class="bio">人工智能研究员 | 计算机视觉专家 | 深度学习实践者。致力于推动AI技术在医疗影像分析领域的创新应用，拥有5年以上研究经验，发表SCI论文10余篇。</p >
         </section>
 
         <!-- 学术成果 -->
         <section class="publications">
             <h2>学术成果</h2>
-            <div class="pub-list">
-                <div class="pub-item">
-                    <span class="pub-type">Journal:</span>
-                    <a href="#" target="_blank">"Deep Learning for Image Recognition" - IEEE TPAMI 2023</a>
+            
+            <div class="paper-item">
+                < img src="paper1.jpg" alt="论文封面" class="paper-image">
+                <div class="paper-info">
+                    <h3>基于深度学习的医学影像分割方法</h3>
+                    <p class="authors">Haken, Zhang, Li, et al. (2024)</p >
+                    <p class="journal">《医学图像分析》, 第28卷 第3期</p >
+                    <div class="abstract">
+                        <h4>摘要</h4>
+                        <p>本研究提出了一种结合Transformer和U-Net的新型网络架构MedTransNet，在肝脏CT图像分割任务中取得了98.2%的Dice系数，显著优于传统方法。通过设计跨尺度注意力模块，有效解决了小目标分割不准确的问题...</p >
+                    </div>
                 </div>
-                <div class="pub-item">
-                    <span class="pub-type">Conference:</span>
-                    <a href="#" target="_blank">"Vision Transformer for Medical Imaging" - CVPR 2023</a>
+            </div>
+
+            <div class="paper-item">
+                < img src="paper2.jpg" alt="论文封面" class="paper-image">
+                <div class="paper-info">
+                    <h3>多模态医学数据融合研究</h3>
+                    <p class="authors">Wang, Haken, et al. (2023)</p >
+                    <p class="journal">《人工智能医学》, 第15卷 第6期</p >
+                    <div class="abstract">
+                        <h4>摘要</h4>
+                        <p>开发了基于对比学习的多模态融合框架CMF-Net，能够有效整合CT、MRI和病理报告数据，在癌症早期诊断任务中将准确率提升至92.4%，为临床多模态数据分析提供了新的解决方案...</p >
+                    </div>
                 </div>
-                <div class="pub-item">
-                    <span class="pub-type">Journal:</span>
-                    <a href="#" target="_blank">"Self-supervised Learning Survey" - ACM Computing Surveys 2022</a>
-                </div>
-                <div class="pub-item">
-                    <span class="pub-type">Conference:</span>
-                    <a href="#" target="_blank">"3D Object Detection Benchmark" - NeurIPS 2022</a>
-                </div>
+            </div>
+        </section>
+
+        <!-- 新闻动态 -->
+        <section class="news">
+            <h2>最新动态</h2>
+            <div class="news-item">
+                <h3>🎉 荣获2024年度杰出青年研究者奖</h3>
+                <p>2024年3月 | 国际人工智能协会</p >
+            </div>
+            <div class="news-item">
+                <h3>📢 在CVPR 2024发表主题演讲</h3>
+                <p>2024年6月 | 拉斯维加斯会议中心</p >
             </div>
         </section>
     </div>
