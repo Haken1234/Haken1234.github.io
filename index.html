@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人主页 - Haken</title>
+    <title>Haken - 学术主页</title>
     <style>
         * {
             margin: 0;
@@ -24,7 +24,7 @@
             padding: 40px 20px;
         }
 
-        /* 个人简介板块 */
+        /* 个人简介 */
         .profile {
             background: white;
             border-radius: 15px;
@@ -49,7 +49,6 @@
 
         h1 {
             font-size: 2.5em;
-            color: #2c3e50;
             margin-bottom: 15px;
             background: linear-gradient(45deg, #4a90e2, #6c5ce7);
             -webkit-background-clip: text;
@@ -62,74 +61,7 @@
             max-width: 600px;
         }
 
-        /* 学术成果板块 */
-        .publications {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-bottom: 40px;
-            animation: fadeInUp 1s ease 0.6s;
-            animation-fill-mode: backwards;
-        }
-
-        .paper-item {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 30px;
-            padding: 25px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .paper-image {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .paper-image:hover {
-            transform: scale(1.03);
-        }
-
-        .paper-info h3 {
-            color: #2c3e50;
-            margin-bottom: 12px;
-            font-size: 1.4em;
-        }
-
-        .authors {
-            color: #4a90e2;
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-
-        .journal {
-            color: #666;
-            font-size: 0.95em;
-            margin-bottom: 15px;
-        }
-
-        .abstract {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #4a90e2;
-        }
-
-        .abstract h4 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-
-        .abstract p {
-            color: #555;
-            line-height: 1.7;
-            font-size: 0.95em;
-        }
-
-        /* 新闻模块 */
+        /* 最新动态 */
         .news {
             background: white;
             border-radius: 15px;
@@ -143,88 +75,213 @@
         .news-item {
             padding: 20px;
             margin: 15px 0;
+            border-left: 3px solid #6c5ce7;
+            transition: all 0.3s ease;
+            display: flex;
+            gap: 30px;
+        }
+
+        .news-date {
+            color: #6c5ce7;
+            font-weight: 600;
+            min-width: 120px;
+        }
+
+        .news-content {
+            flex: 1;
+        }
+
+        /* 学术成果 */
+        .publications {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease 0.6s;
+            animation-fill-mode: backwards;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2em;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 70%;
+            background: #4a90e2;
+            border-radius: 3px;
+        }
+
+        .pub-item {
+            margin: 25px 0;
+            padding: 15px;
             border-left: 3px solid #4a90e2;
+            transition: all 0.3s ease;
+        }
+
+        .pub-type {
+            color: #4a90e2;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .pub-details {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 30px;
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9ff;
+            border-radius: 8px;
+        }
+
+        .pub-image {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
         }
 
-        .news-item:hover {
-            transform: translateX(10px);
+        .pub-abstract {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.7;
         }
 
-        /* 响应式设计 */
-        @media (max-width: 768px) {
-            .paper-item {
-                grid-template-columns: 1fr;
-            }
-            
-            .paper-image {
-                max-width: 60%;
-                margin: 0 auto;
-            }
+        a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #4a90e2;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            margin: 5px;
+            border-radius: 20px;
+            background: #4a90e2;
+            color: white;
+            font-size: 0.85em;
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 10px;
+            }
+            
+            .profile, .news, .publications {
+                padding: 25px;
+            }
+            
+            .pub-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .news-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .pub-image {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- 个人简介 -->
         <section class="profile">
-            < img src="tou_xiang.jpg" alt="头像" class="avatar">
+            <img src="avatar.jpg" alt="头像" class="avatar">
             <h1>Haken</h1>
-            <p class="bio">人工智能研究员 | 计算机视觉专家 | 深度学习实践者。致力于推动AI技术在医疗影像分析领域的创新应用，拥有5年以上研究经验，发表SCI论文10余篇。</p >
-        </section>
-
-        <!-- 学术成果 -->
-        <section class="publications">
-            <h2>学术成果</h2>
-            
-            <div class="paper-item">
-                < img src="paper1.jpg" alt="论文封面" class="paper-image">
-                <div class="paper-info">
-                    <h3>基于深度学习的医学影像分割方法</h3>
-                    <p class="authors">Haken, Zhang, Li, et al. (2024)</p >
-                    <p class="journal">《医学图像分析》, 第28卷 第3期</p >
-                    <div class="abstract">
-                        <h4>摘要</h4>
-                        <p>本研究提出了一种结合Transformer和U-Net的新型网络架构MedTransNet，在肝脏CT图像分割任务中取得了98.2%的Dice系数，显著优于传统方法。通过设计跨尺度注意力模块，有效解决了小目标分割不准确的问题...</p >
-                    </div>
-                </div>
-            </div>
-
-            <div class="paper-item">
-                < img src="paper2.jpg" alt="论文封面" class="paper-image">
-                <div class="paper-info">
-                    <h3>多模态医学数据融合研究</h3>
-                    <p class="authors">Wang, Haken, et al. (2023)</p >
-                    <p class="journal">《人工智能医学》, 第15卷 第6期</p >
-                    <div class="abstract">
-                        <h4>摘要</h4>
-                        <p>开发了基于对比学习的多模态融合框架CMF-Net，能够有效整合CT、MRI和病理报告数据，在癌症早期诊断任务中将准确率提升至92.4%，为临床多模态数据分析提供了新的解决方案...</p >
-                    </div>
-                </div>
+            <div class="bio">
+                <p>人工智能研究员 | 西交利物浦大学</p>
+                <p>研究方向：多模态学习、医疗影像分析、自然语言处理</p>
             </div>
         </section>
 
-        <!-- 新闻动态 -->
         <section class="news">
             <h2>最新动态</h2>
-            <div class="news-item">
-                <h3>🎉 荣获2024年度杰出青年研究者奖</h3>
-                <p>2024年3月 | 国际人工智能协会</p >
+            <div class="news-list">
+                <div class="news-item">
+                    <span class="news-date">2024年9月15日</span>
+                    <div class="news-content">
+                        <strong>论文接收</strong> - 多模态医疗影像分析论文被MICCAI 2024接收
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">2024年7月20日</span>
+                    <div class="news-content">
+                        <strong>学术获奖</strong> - 荣获IEEE CVPR最佳学生论文奖
+                    </div>
+                </div>
             </div>
-            <div class="news-item">
-                <h3>📢 在CVPR 2024发表主题演讲</h3>
-                <p>2024年6月 | 拉斯维加斯会议中心</p >
+        </section>
+
+        <section class="publications">
+            <h2>学术成果</h2>
+            <div class="pub-list">
+                <!-- 论文示例 1 -->
+                <div class="pub-item">
+                    <div class="pub-header">
+                        <span class="pub-type">Conference:</span>
+                        <a href="#">"Multi-modal Fusion for Medical Diagnosis" - MICCAI 2024</a>
+                    </div>
+                    <div class="pub-details">
+                        <img src="paper1.jpg" alt="模型架构图" class="pub-image">
+                        <div class="pub-abstract">
+                            <strong>摘要：</strong>提出新型跨模态注意力融合框架，在肝脏肿瘤检测任务中达到92.3%准确率。集成CT、MRI和PET影像特征，通过动态权重分配实现多源信息互补。
+                            <div style="margin-top:15px">
+                                <a href="#" class="badge">PDF</a>
+                                <a href="#" class="badge">Code</a>
+                                <a href="#" class="badge">BibTeX</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 论文示例 2 -->
+                <div class="pub-item">
+                    <div class="pub-header">
+                        <span class="pub-type">Journal:</span>
+                        <a href="#">"Vision-Language Models for Radiology" - IEEE TMI 2024</a>
+                    </div>
+                    <div class="pub-details">
+                        <img src="paper2.jpg" alt="实验结果可视化" class="pub-image">
+                        <div class="pub-abstract">
+                            <strong>摘要：</strong>开发结合临床知识图谱的医疗报告生成系统，在MIMIC-CXR数据集上CIDEr分数达0.887，生成的报告质量优于放射科住院医师水平。
+                            <div style="margin-top:15px">
+                                <a href="#" class="badge">PDF</a>
+                                <a href="#" class="badge">Dataset</a>
+                                <a href="#" class="badge">Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
