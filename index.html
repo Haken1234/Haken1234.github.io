@@ -62,13 +62,48 @@
             max-width: 600px;
         }
 
+        /* 新闻模块 */
+        .news {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.3s;
+            animation-fill-mode: backwards;
+        }
+
+        .news-item {
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 3px solid #6c5ce7;
+            transition: all 0.3s ease;
+            display: flex;
+            gap: 30px;
+        }
+
+        .news-date {
+            color: #6c5ce7;
+            font-weight: 600;
+            min-width: 120px;
+        }
+
+        .news-content {
+            flex: 1;
+        }
+
+        .news-item:hover {
+            transform: translateX(10px);
+            background: #f8f9ff;
+        }
+
         /* 成果展示板块 */
         .publications {
             background: white;
             border-radius: 15px;
             padding: 40px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            animation: fadeInUp 1s ease 0.3s;
+            animation: fadeInUp 1s ease 0.6s;
             animation-fill-mode: backwards;
         }
 
@@ -137,12 +172,21 @@
                 padding: 20px 10px;
             }
             
-            .profile, .publications {
+            .profile, .news, .publications {
                 padding: 25px;
             }
             
             h1 {
                 font-size: 2em;
+            }
+
+            .news-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .news-date {
+                min-width: auto;
             }
         }
     </style>
@@ -156,11 +200,35 @@
             <div class="bio">
                 <p>人工智能研究员</p>
                 <p>西交利物浦大学大二，专注于多模态领域研究</p>
-                
             </div>
         </section>
 
-        <!-- 成果展示 -->
+        <!-- 最新动态 -->
+        <section class="news">
+            <h2>最新动态</h2>
+            <div class="news-list">
+                <div class="news-item">
+                    <span class="news-date">2024年9月15日</span>
+                    <div class="news-content">
+                        <strong>论文接收</strong> - 多模态医疗影像分析论文被MICCAI 2024接收
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">2024年7月20日</span>
+                    <div class="news-content">
+                        <strong>学术获奖</strong> - 荣获IEEE CVPR最佳学生论文奖
+                    </div>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">2024年5月10日</span>
+                    <div class="news-content">
+                        <strong>学术报告</strong> - 在NeurIPS 2024研讨会发表主题演讲
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 学术成果 -->
         <section class="publications">
             <h2>学术成果</h2>
             <div class="pub-list">
